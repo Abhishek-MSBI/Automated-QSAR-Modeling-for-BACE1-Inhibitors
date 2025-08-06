@@ -1,8 +1,7 @@
 # 🧬 Automated QSAR Modeling for BACE1 Inhibitors
 
-End-to-end QSAR pipeline for predicting bioactivity of BACE1 inhibitors using machine learning and deep learning approaches.
+End-to-end QSAR pipeline for predicting bioactivity of BACE1 inhibitors using machine learning approaches.
 Fully automated — from data acquisition to final report generation.
-Ideal for computational drug discovery and M.Sc. Bioinformatics major projects..
 
 📌 Project Overview
 This project implements a fully automated Quantitative Structure–Activity Relationship (QSAR) analysis pipeline to predict the inhibitory activity (pIC₅₀) of small molecules targeting BACE1 (Beta-secretase 1) — a key enzyme in Alzheimer's disease pathology.
@@ -35,8 +34,6 @@ Trains and compares the following regression models:
 ✅ Support Vector Regressor (SVR)
 
 ✅ Linear Regression
-
-✅ Deep Learning Model (Keras MLP)
 
 Performance is evaluated using:
 
