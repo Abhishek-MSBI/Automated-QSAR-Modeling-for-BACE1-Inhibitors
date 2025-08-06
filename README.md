@@ -1,140 +1,110 @@
 # 🧬 Automated QSAR Modeling for BACE1 Inhibitors
 
-End-to-end QSAR pipeline for predicting bioactivity of BACE1 inhibitors using machine learning approaches.
-Fully automated — from data acquisition to final report generation.
+End-to-end QSAR pipeline for predicting the bioactivity (pIC₅₀) of BACE1 inhibitors using machine learning and deep learning in Google Colab.
+Fully automated — from real-time data fetching to final PDF reporting.
 
 📌 Project Overview
-This project implements a fully automated Quantitative Structure–Activity Relationship (QSAR) analysis pipeline to predict the inhibitory activity (pIC₅₀) of small molecules targeting BACE1 (Beta-secretase 1) — a key enzyme in Alzheimer's disease pathology.
+This project performs Quantitative Structure–Activity Relationship (QSAR) analysis for BACE1 inhibitors, a promising target in Alzheimer's research. The entire workflow is built and executed within Google Colab, requiring no local setup or installation.
 
-Here is the link : https://colab.research.google.com/drive/1UsMlJOSO7KP0rO_BpesJP-WW2tPsl0P6?usp=sharing
+The pipeline automatically fetches bioactivity data from ChEMBL, calculates molecular descriptors, trains ML/DL models, generates visualizations, and exports a complete PDF report.
 
-Designed to be modular, reproducible, and extensible, the pipeline fetches real-time data from ChEMBL, calculates molecular descriptors, trains several machine learning and deep learning models, visualizes results, and compiles everything into a professional PDF report.
+🔧 Technologies Used
+Category	Libraries / Tools Used
+Data Fetching	chembl_webresource_client, pandas
+Descriptor Calc	RDKit
+Machine Learning	scikit-learn, matplotlib, seaborn
+Deep Learning	TensorFlow (Keras)
+Visualization	matplotlib, seaborn
+Reporting	fpdf, PIL, datetime
 
-🚀 Key Features
-🔄 1. Dynamic Data Fetching
-Downloads the latest BACE1 inhibitors and their IC₅₀ data directly from ChEMBL.
+⚙️ How to Use (Google Colab)
+✅ 1. Open the Notebook
+You can directly access and run the project here:
 
-🧹 2. Robust Preprocessing
-Cleans data: removes missing values, duplicates, and invalid measurements (infinity, NaNs).
+👉 Open in Google Colab
+(https://colab.research.google.com/drive/1UsMlJOSO7KP0rO_BpesJP-WW2tPsl0P6?usp=sharing)
 
-Converts IC₅₀ to pIC₅₀ for better numerical modeling.
+✅ 2. Enable GPU (Optional)
+Go to Runtime → Change Runtime Type
 
-🧪 3. Descriptor Calculation
-Uses RDKit to compute a comprehensive set of 2D molecular descriptors.
+Set Hardware Accelerator to GPU (for deep learning training)
 
-Designed to easily extend with other descriptor types (e.g., fingerprints, 3D).
+✅ 3. Run the Notebook
+Click Runtime → Run All
 
-🤖 4. Machine Learning Models
-Trains and compares the following regression models:
+The notebook will:
 
-✅ Random Forest Regressor
+Fetch BACE1 data from ChEMBL
 
-✅ Gradient Boosting Regressor
+Clean & process it
 
-✅ Support Vector Regressor (SVR)
+Calculate 2D molecular descriptors
 
-✅ Linear Regression
+Train multiple ML models
 
-Performance is evaluated using:
+Train a deep learning model (Keras MLP)
 
-R² Score
+Generate visualizations
 
-RMSE (Root Mean Square Error)
+Save results and create QSAR_Analysis_Report.pdf
 
-📊 5. Visualization
-Generates high-quality plots:
+📊 Models Used
+✅ Machine Learning Models
+Random Forest Regressor
 
-Actual vs. Predicted
+Gradient Boosting Regressor
 
-Residuals vs. Predicted
+Support Vector Regressor (SVR)
 
-Feature Importance (for tree-based models)
+Linear Regression
 
-Training loss/validation loss for Deep Learning
+✅ Deep Learning Model
+Keras-based MLP (Multi-Layer Perceptron) with Dropout & EarlyStopping
 
-📄 6. Automated PDF Report
-Generates a complete QSAR_Analysis_Report.pdf summarizing:
-
-Preprocessing steps
-
-Model results
-
-Diagnostic plots
-
-Performance comparison table
-
-🛠️ Getting Started
-1. Prerequisites
-Ensure you have Python 3.7+ installed.
-
-2. Clone the Repository
-bash
-Copy
-Edit
-git clone https://github.com/your-username/qsar-bace1.git
-cd qsar-bace1
-3. Create & Activate a Virtual Environment
-bash
-Copy
-Edit
-# Create virtual environment
-python -m venv venv
-
-# Activate it
-# Windows
-venv\Scripts\activate
-
-# macOS/Linux
-source venv/bin/activate
-4. Install Dependencies
-bash
-Copy
-Edit
-pip install -r requirements.txt
-5. Run the QSAR Pipeline
-bash
-Copy
-Edit
-python qsar_analysis.py
 📁 Output
-After the script finishes execution, you'll find:
-
 File	Description
-QSAR_Analysis_Report.pdf	Final report with all metrics, tables, and visualizations
-*.png	Individual plots used in the report (e.g., actual vs. predicted)
-processed_data.csv (optional)	Cleaned data with descriptors and pIC₅₀ values
+QSAR_Analysis_Report.pdf	Full report including model scores & plots
+actual_vs_predicted.png	Predicted vs. true values (all models)
+residuals.png	Residuals diagnostic plot
+feature_importance.png	Feature importance for RF/GBM
+dl_loss_plot.png	Deep Learning loss (train vs val)
 
-🔮 Planned Extensions
-The project is designed to be extensible and can be upgraded with:
+🔮 Possible Extensions
+You can further upgrade this project with:
 
-✅ Deep Learning models (already integrated — Keras MLP)
+🧠 Molecule generation using RNNs, VAEs, or generative models
 
-🔬 Molecule generation using generative models (e.g., RNNs, VAEs)
+🧪 Predicting ADME/Tox properties
 
-🧬 Molecular docking or ADME prediction
+📊 Integrating Streamlit or Gradio interface
 
-🌐 Web or Streamlit GUI interface
+🧬 3D descriptor or fingerprint-based QSAR
 
-📦 Packaging as a PyPI module or CLI tool
+🗂️ Batch processing for multiple targets (multi-task QSAR)
 
-👨‍🔬 Use Case
-Ideal for:
+📚 Academic Relevance
+This project can be submitted as a Major Project for:
 
-Research projects in computational drug discovery
+M.Sc. Bioinformatics / Biotechnology
 
-Bioinformatics/cheminformatics assignments
+M.Tech / B.Tech Bioinformatics
 
-Major M.Sc. / B.Tech projects involving ML & bioactivity prediction
+Computational drug discovery research
 
-📚 Citation & Acknowledgment
-If you use this code or approach in your academic work, please cite:
+Includes real-world databases, ML, DL, visualization, and reporting — ideal for showcasing practical bioinformatics skills.
 
-ChEMBL database
+✍️ Author
+#### Abhishek S R
+#### M.Sc. Bioinformatics,
+#### Garden City University
 
-RDKit library
+📌 Want to Use Locally?
+While this project is Colab-based, you can also convert it into a standalone script:
 
-scikit-learn, TensorFlow
+Export notebook as .py (File → Download → .py)
 
-📞 Contact
-Created by [Your Name] | MSc Bioinformatics
-Feel free to reach out for collaboration or queries.
+Install requirements with pip install -r requirements.txt
+
+Run via python qsar_analysis.py
+
+If you’d like, I can help generate that .py version and requirements.txt for GitHub.
