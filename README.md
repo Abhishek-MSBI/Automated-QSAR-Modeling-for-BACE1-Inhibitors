@@ -1,68 +1,141 @@
 Automated QSAR Modeling for BACE1 Inhibitors
-This project contains a Python script that performs an end-to-end Quantitative Structure-Activity Relationship (QSAR) analysis for inhibitors of the BACE1 enzyme, a key target in Alzheimer's disease research.
+End-to-end QSAR pipeline for predicting bioactivity of BACE1 inhibitors using machine learning and deep learning approaches.
+Fully automated — from data acquisition to final report generation.
 
-The workflow automates every step of the process, from data acquisition to final reporting, making it a powerful tool for computational drug discovery.
+📌 Project Overview
+This project implements a fully automated Quantitative Structure–Activity Relationship (QSAR) analysis pipeline to predict the inhibitory activity (pIC₅₀) of small molecules targeting BACE1 (Beta-secretase 1) — a key enzyme in Alzheimer's disease pathology.
 
-Features
-Dynamic Data Fetching: Automatically downloads the latest BACE1 bioactivity data (IC50 values) directly from the ChEMBL database.
+Here is the link : https://colab.research.google.com/drive/1UsMlJOSO7KP0rO_BpesJP-WW2tPsl0P6?usp=sharing
 
-Robust Preprocessing: Includes rigorous data cleaning steps to handle missing values, duplicates, and potential data errors (infinity, NaN).
+Designed to be modular, reproducible, and extensible, the pipeline fetches real-time data from ChEMBL, calculates molecular descriptors, trains several machine learning and deep learning models, visualizes results, and compiles everything into a professional PDF report.
 
-Automated Descriptor Calculation: Uses the RDKit library to calculate a comprehensive set of 2D molecular descriptors for each compound.
+🚀 Key Features
+🔄 1. Dynamic Data Fetching
+Downloads the latest BACE1 inhibitors and their IC₅₀ data directly from ChEMBL.
 
-Comparative Model Training: Trains and evaluates multiple common machine learning regression models to find the best performer:
+🧹 2. Robust Preprocessing
+Cleans data: removes missing values, duplicates, and invalid measurements (infinity, NaNs).
 
-Random Forest
+Converts IC₅₀ to pIC₅₀ for better numerical modeling.
 
-Gradient Boosting
+🧪 3. Descriptor Calculation
+Uses RDKit to compute a comprehensive set of 2D molecular descriptors.
 
-Support Vector Regressor (SVR)
+Designed to easily extend with other descriptor types (e.g., fingerprints, 3D).
 
-Linear Regression
+🤖 4. Machine Learning Models
+Trains and compares the following regression models:
 
-Comprehensive Visualization: Generates high-quality, detailed plots for in-depth model diagnostics:
+✅ Random Forest Regressor
 
-Actual vs. Predicted plots to assess performance.
+✅ Gradient Boosting Regressor
 
-Residuals vs. Predicted plots to check for systematic errors.
+✅ Support Vector Regressor (SVR)
 
-Feature Importance plot for the best model to understand which molecular properties drive activity.
+✅ Linear Regression
 
-Automated PDF Reporting: Automatically compiles all results, tables, and plots into a single, professional QSAR_Analysis_Report.pdf for easy sharing and documentation.
+✅ Deep Learning Model (Keras MLP)
 
-How to Use
+Performance is evaluated using:
+
+R² Score
+
+RMSE (Root Mean Square Error)
+
+📊 5. Visualization
+Generates high-quality plots:
+
+Actual vs. Predicted
+
+Residuals vs. Predicted
+
+Feature Importance (for tree-based models)
+
+Training loss/validation loss for Deep Learning
+
+📄 6. Automated PDF Report
+Generates a complete QSAR_Analysis_Report.pdf summarizing:
+
+Preprocessing steps
+
+Model results
+
+Diagnostic plots
+
+Performance comparison table
+
+🛠️ Getting Started
 1. Prerequisites
-Ensure you have Python 3.7 or newer installed.
+Ensure you have Python 3.7+ installed.
 
 2. Clone the Repository
-git clone <your-repository-url>
-cd <your-repository-name>
-
-3. Set Up the Environment
-It is highly recommended to use a virtual environment to manage dependencies.
-
-# Create a virtual environment
+bash
+Copy
+Edit
+git clone https://github.com/your-username/qsar-bace1.git
+cd qsar-bace1
+3. Create & Activate a Virtual Environment
+bash
+Copy
+Edit
+# Create virtual environment
 python -m venv venv
 
-# Activate the environment
-# On Windows:
+# Activate it
+# Windows
 venv\Scripts\activate
-# On macOS/Linux:
+
+# macOS/Linux
 source venv/bin/activate
-
 4. Install Dependencies
-Install all the required libraries using the requirements.txt file.
-
+bash
+Copy
+Edit
 pip install -r requirements.txt
-
-5. Run the Analysis
-Execute the main script. The process will take a few minutes as it fetches data, calculates descriptors, and trains multiple models.
-
+5. Run the QSAR Pipeline
+bash
+Copy
+Edit
 python qsar_analysis.py
+📁 Output
+After the script finishes execution, you'll find:
 
-6. View the Output
-After the script finishes, you will find the following new files in your project directory:
+File	Description
+QSAR_Analysis_Report.pdf	Final report with all metrics, tables, and visualizations
+*.png	Individual plots used in the report (e.g., actual vs. predicted)
+processed_data.csv (optional)	Cleaned data with descriptors and pIC₅₀ values
 
-QSAR_Analysis_Report.pdf: The final, comprehensive report with all results and plots.
+🔮 Planned Extensions
+The project is designed to be extensible and can be upgraded with:
 
-Several .png image files: These are the individual plots that were embedded in the PDF.
+✅ Deep Learning models (already integrated — Keras MLP)
+
+🔬 Molecule generation using generative models (e.g., RNNs, VAEs)
+
+🧬 Molecular docking or ADME prediction
+
+🌐 Web or Streamlit GUI interface
+
+📦 Packaging as a PyPI module or CLI tool
+
+👨‍🔬 Use Case
+Ideal for:
+
+Research projects in computational drug discovery
+
+Bioinformatics/cheminformatics assignments
+
+Major M.Sc. / B.Tech projects involving ML & bioactivity prediction
+
+📚 Citation & Acknowledgment
+If you use this code or approach in your academic work, please cite:
+
+ChEMBL database
+
+RDKit library
+
+scikit-learn, TensorFlow
+
+📞 Contact
+Created by [Your Name] | MSc Bioinformatics
+Feel free to reach out for collaboration or queries.
