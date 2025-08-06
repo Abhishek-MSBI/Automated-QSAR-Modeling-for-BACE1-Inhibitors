@@ -1,4 +1,5 @@
-🧬 Automated QSAR Modeling for BACE1 Inhibitors
+# 🧬 Automated QSAR Modeling for BACE1 Inhibitors
+
 End-to-end QSAR pipeline for predicting bioactivity of BACE1 inhibitors using machine learning and deep learning approaches.
 Fully automated — from data acquisition to final report generation.
 Ideal for computational drug discovery and M.Sc. Bioinformatics major projects..
