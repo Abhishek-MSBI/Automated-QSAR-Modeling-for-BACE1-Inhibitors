@@ -3,6 +3,8 @@
 End-to-end QSAR pipeline for predicting the bioactivity (pIC₅₀) of BACE1 inhibitors using machine learning and deep learning in Google Colab.
 Fully automated — from real-time data fetching to final PDF reporting.
 
+## Hugging face application: [Link](https://huggingface.co/spaces/srabhishek/BACE1-QSAR-Predictor)
+
 📌 Project Overview
 This project performs Quantitative Structure–Activity Relationship (QSAR) analysis for BACE1 inhibitors, a promising target in Alzheimer's research. The entire workflow is built and executed within Google Colab, requiring no local setup or installation.
 
