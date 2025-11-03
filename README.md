@@ -24,7 +24,7 @@ Reporting	fpdf, PIL, datetime
 You can directly access and run the project here:
 
 👉 Open in Google Colab
-(https://colab.research.google.com/drive/1UsMlJOSO7KP0rO_BpesJP-WW2tPsl0P6?usp=sharing)
+[Link](https://colab.research.google.com/drive/1My3CruNVK-GTFn51IZZdI8fA8FBo4nzQ?usp=sharing)
 
 ✅ 2. Enable GPU (Optional)
 Go to Runtime → Change Runtime Type
